@@ -1,5 +1,5 @@
 import { getTranding } from 'services/apiService';
-import MoviesList from 'components/MoviesList';
+import MoviesList from 'components/MovieList/MoviesList';
 import { useEffect, useState } from 'react';
 
 export default function HomePage() {
