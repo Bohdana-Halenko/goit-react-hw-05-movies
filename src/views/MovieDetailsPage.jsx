@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import {
   useParams,
   useNavigate,
-  //   useLocation,
+    // useLocation,
   Outlet,
 } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ export default function MovieDetalisPage() {
   const [movie, setMovie] = useState(null);
 
   const navigate = useNavigate();
-  //   const location = useLocation();
+    // const location = useLocation();
   const onBack = () => {
     navigate(-1);
   };

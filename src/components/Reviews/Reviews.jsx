@@ -2,6 +2,8 @@ import { useParams } from 'react-router-dom';
 import { List, Item } from './Reviews.styled';
 import { useState, useEffect } from 'react';
 import { getReview } from 'services/apiService';
+
+
 export default function Reviews() {
   const params = useParams();
 
