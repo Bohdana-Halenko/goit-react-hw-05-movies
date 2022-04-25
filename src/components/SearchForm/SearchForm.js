@@ -2,6 +2,10 @@ import { Form, Btn, Input, Wrap } from './SearchForm.styled';
 // import { useSearchParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // import { toast } from 'react-toastify';
+import React from 'react';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function SearchForm({ handleSetQuery, handleSubmit, value }){
 
@@ -17,7 +21,11 @@ export default function SearchForm({ handleSetQuery, handleSubmit, value }){
   //         return;
   //     }
   //   };
-
+  const notify = () => {
+    if(!value.trim()){
+      toast("Error!")
+    }
+  };
   return (
     <Wrap>
       <Form onSubmit={handleSubmit}>
@@ -26,7 +34,8 @@ export default function SearchForm({ handleSetQuery, handleSubmit, value }){
           onChange={handleSetQuery}
           value={value}
         />
-        <Btn type="submit">Search</Btn>
+        <button type="submit" onClick={notify}>Search</button>
+		    <ToastContainer />
       </Form>
     </Wrap>
   );
