@@ -45,5 +45,5 @@ export default function SearchForm({ handleOnSubmit }) {
   );
 }
 SearchForm.propTypes = {
-  onChange: PropTypes.func,
+  handleOnSubmit: PropTypes.func,
 };

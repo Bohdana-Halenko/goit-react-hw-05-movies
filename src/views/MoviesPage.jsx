@@ -6,7 +6,7 @@ import MoviesList from 'components/MovieList/MoviesList';
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState('');
+  // const [query, setQuery] = useState('');
   const [searchParams, setSearchParams] = useSearchParams({});
   const param = searchParams.get('query');
 
@@ -19,7 +19,7 @@ export default function MoviesPage() {
     getSearchMovie();
     if (param) {
       getSearchMovie(param).then(res => setMovies(res));
-      setQuery(param);
+      // setQuery(param);
     }
   }, [param]);
 

@@ -7,8 +7,8 @@ export default function MoviesList({ movies }) {
   const location = useLocation();
   return (
     <List>
-      {movies.map(movie => (
-        <Item key={movie.id}>
+      {movies.map((movie, index) => (
+        <Item key={ index }> {movie.text}
           <Link to={`/movies/${movie.id}`} state={{ from: location }}>
             {movie.title}
           </Link>
@@ -17,6 +17,8 @@ export default function MoviesList({ movies }) {
     </List>
   );
 }
+
+
 MoviesList.propTypes = {
-  movies: PropTypes.array.isRequired,
+  movies: PropTypes.array,
 };
