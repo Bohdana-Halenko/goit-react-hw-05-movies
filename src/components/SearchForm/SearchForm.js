@@ -3,33 +3,47 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
 
 
-export default function SearchForm({ handleSetQuery, handleSubmit, value }){
-  
+export default function SearchForm({ onChange }){
 
-  const notify = () => {
-    if(!value.trim()){
-      toast("Empty request!")
-    }
+  const [movieName, setMovieName] = useState('');
+
+
+  const onNameChange = e => {
+    setMovieName(e.currentTarget.value.toLowerCase());
   };
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    if (movieName.trim() === '') {
+      toast("Empty request!");
+      return;
+    }
+
+    setMovieName('');
+  };
+
+
 
   return (
     <Wrap>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={onSubmit}>
         <Input
           placeholder="Movie name"
-          onChange={handleSetQuery}
-          value={value}
+          autoComplete="off"
+          autoFocus
+          onChange={onNameChange}
+          value={movieName}
         />
-        <Btn type="submit" onClick={notify} >Search</Btn>
+        <Btn type="submit" /*onClick={notify}*/ >Search</Btn>
 		    <ToastContainer />
       </Form>
     </Wrap>
   );
 }
 SearchForm.propTypes = {
-  handleSetQuery: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+   onChange: PropTypes.func,
 };
