@@ -16,19 +16,9 @@ export default function MoviesPage() {
     e.preventDefault();
     setSearchParams({ query });
     getSearchMovie(query).then(res => setMovies(res));
-      //   const searchQuery = e.target.elements.query.value.trim();
-
-      //   if (!searchQuery) {
-      //     toast('Empty request!', { position: 'top-center' });
-      //     setSearchParams('');
-      //     return;
-      // }
-      // setSearchParams({ param: searchQuery });
-      // e.currentTarget.reset();
-    };
-
-
-  useEffect(() => {
+  };
+  
+  useEffect(() => {getSearchMovie()
     if (param) {
       getSearchMovie(param).then(res => setMovies(res));
       setQuery(param);
@@ -51,3 +41,4 @@ export default function MoviesPage() {
     </div>
   );
 }
+

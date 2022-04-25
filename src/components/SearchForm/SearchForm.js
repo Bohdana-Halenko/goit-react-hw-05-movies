@@ -23,6 +23,8 @@ export default function SearchForm({ onChange }){
       return;
     }
 
+    // onChange(movieName);
+
     setMovieName('');
   };
 
@@ -34,11 +36,11 @@ export default function SearchForm({ onChange }){
         <Input
           placeholder="Movie name"
           autoComplete="off"
-          autoFocus
+          // autoFocus
           onChange={onNameChange}
           value={movieName}
         />
-        <Btn type="submit" /*onClick={notify}*/ >Search</Btn>
+        <Btn type="submit" >Search</Btn>
 		    <ToastContainer />
       </Form>
     </Wrap>
@@ -47,3 +49,8 @@ export default function SearchForm({ onChange }){
 SearchForm.propTypes = {
    onChange: PropTypes.func,
 };
+
+
+
+
+
